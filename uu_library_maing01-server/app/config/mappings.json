@@ -1,0 +1,115 @@
+{
+  "{vendor}-{uuApp}-{uuSubApp}": {
+    "useCaseMap": {
+      "sys/uuAppWorkspace/init": {
+        "realization": "api/controllers/LibraryMainController.init",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "sys/uuAppWorkspace/load": {
+        "realization": "api/controllers/LibraryMainController.load",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "sys/uuAppWorkspace/loadBasicData": {
+        "realization": "api/controllers/LibraryMainController.loadBasicData",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "defaultUve": {
+        "realization": "index.html",
+        "httpMethod": "GET",
+        "type": "UVE"
+      },
+      "sys/uuAppWorkspace/initUve": {
+        "realization": "index.html",
+        "httpMethod": "GET",
+        "type": "UVE"
+      },
+      "book/create": {
+        "realization": "api/controllers/BookController.create",
+        "httpMethod": "POST",
+        "type": "CMD",
+        "dtoInAuditMap": {
+          "name": "$.name"
+        }
+      },
+      "book/get": {
+        "realization": "api/controllers/BookController.get",
+        "httpMethod": "GET",
+        "type": "CMD",
+        "dtoInAuditMap": {
+          "id": "$.id"
+        }
+      },
+      "book/list": {
+        "realization": "api/controllers/BookController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "book/update": {
+        "realization": "api/controllers/BookController.update",
+        "httpMethod": "POST",
+        "type": "CMD",
+        "dtoInAuditMap": {
+          "id": "$.id"
+        }
+      },
+      "book/delete": {
+        "realization": "api/controllers/BookController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "author/create": {
+        "realization": "api/controllers/AuthorController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "author/get": {
+        "realization": "api/controllers/AuthorController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "author/list": {
+        "realization": "api/controllers/AuthorController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "author/update": {
+        "realization": "api/controllers/AuthorController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "author/delete": {
+        "realization": "api/controllers/AuthorController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/create": {
+        "realization": "api/controllers/LocationController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/get": {
+        "realization": "api/controllers/LocationController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/list": {
+        "realization": "api/controllers/LocationController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/update": {
+        "realization": "api/controllers/LocationController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/delete": {
+        "realization": "api/controllers/LocationController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      }
+    }
+  }
+}

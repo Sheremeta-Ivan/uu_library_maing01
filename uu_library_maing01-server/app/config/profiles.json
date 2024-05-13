@@ -1,0 +1,98 @@
+{
+  "{asid}": {
+    "profileList": ["AsidAuthorities", "AsidExecutives", "AsidLicenseOwner", "Public"],
+    "useCaseMap": {
+    }
+  },
+  "*": {
+    "profileList": ["Authorities", "Executives", "AwidLicenseOwner", "Public", "Authenticated", "AwidInitiator"],
+    "useCaseMap": {
+      "sys/uuAppWorkspace/init": {
+        "sysStateList": ["created", "assigned", "active"],
+        "profileList": ["AwidLicenseOwner", "AwidInitiator"]
+      },
+      "sys/uuAppWorkspace/load": {
+        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "profileList": ["Authenticated", "Executives"]
+      },
+      "sys/uuAppWorkspace/loadBasicData": {
+        "sysStateList": ["created", "assigned", "active", "restricted", "readOnly", "closed", "suspended"],
+        "profileList": ["Public"]
+      },
+      "defaultUve": {
+        "profileList": ["Public"]
+      },
+      "sys/uuAppWorkspace/initUve": {
+        "sysStateList": ["created", "assigned"],
+        "profileList": ["Public", "AwidLicenseOwner", "AwidInitiator"]
+      },
+      "uu-app-binarystore/getBinaryData": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Operatives", "Readers"]
+      },
+      "book/create": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "book/get": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives", "Readers"]
+      },
+      "book/list": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives", "Readers"]
+      },
+      "book/update": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "book/delete": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "author/create": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "author/get": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "author/update": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "author/delete": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "author/list": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },"location/create": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "location/get": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "location/update": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "location/delete": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+      "location/list": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives"]
+      },
+     "binary/getData": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities", "Executives", "Readers"]
+      }
+    }
+  }
+}
