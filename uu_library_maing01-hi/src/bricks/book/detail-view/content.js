@@ -65,7 +65,7 @@ const Content = createVisualComponent({
 
     return (
       <div {...attrs}>
-        <Grid rowGap={6} templateColumns="repeat(2, 1fr)">
+        <Grid rowGap={6} templateColumns={{ xs: "100%", m: "repeat(2,1fr)" }}>
           {book.imageUrl && <img src={book.imageUrl} alt={book.name} className={Css.image()} />}
           <Block>
             <Text significance="subdued" colorScheme="building" segment="title" category="interface" type="major">

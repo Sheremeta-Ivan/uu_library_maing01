@@ -25,7 +25,7 @@ const Css = {
 //@@viewOff:css
 
 const titleStyles = { category: "interface", segment: "title", type: "major" };
-const textStyles = (segment) => ({ category: "interface", segment, type: "medium" });
+const textStyles = (segment) => ({ category: "interface", type: "medium", segment });
 const lineStyles = { significance: "subdued", colorScheme: "dim" };
 
 export const Tile = createVisualComponent({
@@ -160,14 +160,15 @@ function Footer({ book, authorName, locationName }) {
   return (
     <Grid rowGap={8}>
       {authorName && (
-        <Block>
-          <Icon icon="mdi-account" margin="0 8px 0 0" />
-          <Text {...textStyles("interactive")}>{lsi.author}</Text>
-          <Line {...lineStyles} />
-          <Text {...textStyles("content")}>{authorName}</Text>
+        <Block height="40px">
+          <Text autoFit={true}>
+            <Icon icon="mdi-account" margin="0 8px 0 0" />
+            <Text {...textStyles("interactive")}>{lsi.author}</Text>
+            <Line {...lineStyles} />
+            <Text {...textStyles("content")}>{authorName}</Text>
+          </Text>
         </Block>
       )}
-
       {locationName && (
         <Block>
           <Icon icon="mdi-map-marker" margin="0 8px 0 0" />
@@ -176,7 +177,6 @@ function Footer({ book, authorName, locationName }) {
           <Text {...textStyles("content")}>{locationName}</Text>
         </Block>
       )}
-
       {book.yearOfPublication && (
         <Block>
           <Icon icon="mdi-calendar" margin="0 8px 0 0" />

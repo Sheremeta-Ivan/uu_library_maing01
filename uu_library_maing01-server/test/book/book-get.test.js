@@ -13,6 +13,18 @@ afterEach(async () => {
   await TestHelper.teardown();
 });
 
+const AuthorDtoIn = {
+  name: "Ivan",
+  surname: "Sheremeta",
+  birthDate: 1999,
+  originCountry: "Ukraine",
+};
+
+const LocationDtoIn = {
+  name: "Homeplace",
+  capacity: 100,
+};
+
 describe("uuCmd book/get", () => {
   test("Access denied - not authorize", async () => {
     try {
@@ -28,22 +40,10 @@ describe("uuCmd book/get", () => {
   test("All data correct Authorities", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",

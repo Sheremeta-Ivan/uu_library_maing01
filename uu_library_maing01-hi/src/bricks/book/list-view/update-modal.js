@@ -69,7 +69,7 @@ const UpdateModal = createVisualComponent({
 
     function getAuthorItemList() {
       return props.authorDataList.data.map(({ data: author }) => {
-        return { value: author.id, children: author.name };
+        return { value: author.id, children: author.name + " " + author.surname };
       });
     }
 

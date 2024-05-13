@@ -15,6 +15,18 @@ afterEach(async () => {
   await TestHelper.teardown();
 });
 
+const AuthorDtoIn = {
+  name: "Ivan",
+  surname: "Sheremeta",
+  birthDate: 1999,
+  originCountry: "Ukraine",
+};
+
+const LocationDtoIn = {
+  name: "Homeplace",
+  capacity: 100,
+};
+
 describe("uuCmd book/create", () => {
   test("Access denied - not authorize", async () => {
     try {
@@ -33,22 +45,10 @@ describe("uuCmd book/create", () => {
   test("All data correct Authorities", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -76,22 +76,10 @@ describe("uuCmd book/create", () => {
   test("All data correct Executives", async () => {
     await TestHelper.login("Executives");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -129,13 +117,6 @@ describe("uuCmd book/create", () => {
   test("Location does not exist", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
@@ -161,22 +142,10 @@ describe("uuCmd book/create", () => {
   test("Location is full", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 0,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -201,10 +170,6 @@ describe("uuCmd book/create", () => {
   });
   test("Author does not exist", async () => {
     await TestHelper.login("Authorities");
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 0,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -230,22 +195,10 @@ describe("uuCmd book/create", () => {
   test("Create book with cover image", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",

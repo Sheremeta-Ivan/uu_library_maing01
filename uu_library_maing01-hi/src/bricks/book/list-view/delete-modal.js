@@ -56,8 +56,6 @@ export const DeleteModal = createVisualComponent({
     //@@viewOn:render
     const book = props.bookDataObject.data;
 
-    console.log(props.bookDataObject.state);
-
     let content;
     switch (props.bookDataObject.state) {
       case "pending":

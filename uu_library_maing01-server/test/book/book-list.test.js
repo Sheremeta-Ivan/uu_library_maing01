@@ -13,6 +13,18 @@ afterEach(async () => {
   await TestHelper.teardown();
 });
 
+const AuthorDtoIn = {
+  name: "Ivan",
+  surname: "Sheremeta",
+  birthDate: 1999,
+  originCountry: "Ukraine",
+};
+
+const LocationDtoIn = {
+  name: "Homeplace",
+  capacity: 100,
+};
+
 describe("uuCmd book/list", () => {
   test("Access denied - not authorized", async () => {
     try {
@@ -26,22 +38,10 @@ describe("uuCmd book/list", () => {
   test("All data correct Authorities", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -67,9 +67,9 @@ describe("uuCmd book/list", () => {
       locationId: location.id,
     };
 
-    const book1 = await TestHelper.executePostCommand("book/create", dtoIn1);
-    const book2 = await TestHelper.executePostCommand("book/create", dtoIn2);
-    const book3 = await TestHelper.executePostCommand("book/create", dtoIn3);
+    await TestHelper.executePostCommand("book/create", dtoIn1);
+    await TestHelper.executePostCommand("book/create", dtoIn2);
+    await TestHelper.executePostCommand("book/create", dtoIn3);
 
     const result = await TestHelper.executeGetCommand("book/list");
     expect(result.data.pageInfo.total).toEqual(3);
@@ -79,22 +79,10 @@ describe("uuCmd book/list", () => {
   test("List by location", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -122,9 +110,9 @@ describe("uuCmd book/list", () => {
       locationId: location.id,
     };
 
-    const book1 = await TestHelper.executePostCommand("book/create", dtoIn1);
-    const book2 = await TestHelper.executePostCommand("book/create", dtoIn2);
-    const book3 = await TestHelper.executePostCommand("book/create", dtoIn3);
+    await TestHelper.executePostCommand("book/create", dtoIn1);
+    await TestHelper.executePostCommand("book/create", dtoIn2);
+    await TestHelper.executePostCommand("book/create", dtoIn3);
 
     const result = await TestHelper.executeGetCommand("book/list", {
       locationId: location.id,
@@ -137,22 +125,10 @@ describe("uuCmd book/list", () => {
   test("List by author", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -180,9 +156,9 @@ describe("uuCmd book/list", () => {
       locationId: location.id,
     };
 
-    const book1 = await TestHelper.executePostCommand("book/create", dtoIn1);
-    const book2 = await TestHelper.executePostCommand("book/create", dtoIn2);
-    const book3 = await TestHelper.executePostCommand("book/create", dtoIn3);
+    await TestHelper.executePostCommand("book/create", dtoIn1);
+    await TestHelper.executePostCommand("book/create", dtoIn2);
+    await TestHelper.executePostCommand("book/create", dtoIn3);
 
     const result = await TestHelper.executeGetCommand("book/list", {
       authorIdList: [author.id],
@@ -195,22 +171,10 @@ describe("uuCmd book/list", () => {
   test("List by author and location", async () => {
     await TestHelper.login("Authorities");
 
-    const AuthorDtoIn = {
-      name: "Ivan",
-      surname: "Sheremeta",
-      birthDate: 1999,
-      originCountry: "Ukraine",
-    };
-
     const author = await TestHelper.executePostCommand(
       "author/create",
       AuthorDtoIn,
     );
-
-    const LocationDtoIn = {
-      name: "Homeplace",
-      capacity: 100,
-    };
 
     const location = await TestHelper.executePostCommand(
       "location/create",
@@ -238,9 +202,9 @@ describe("uuCmd book/list", () => {
       locationId: location.id,
     };
 
-    const book1 = await TestHelper.executePostCommand("book/create", dtoIn1);
-    const book2 = await TestHelper.executePostCommand("book/create", dtoIn2);
-    const book3 = await TestHelper.executePostCommand("book/create", dtoIn3);
+    await TestHelper.executePostCommand("book/create", dtoIn1);
+    await TestHelper.executePostCommand("book/create", dtoIn2);
+    await TestHelper.executePostCommand("book/create", dtoIn3);
 
     const result = await TestHelper.executeGetCommand("book/list", {
       authorIdList: [author.id],
